@@ -14,6 +14,12 @@ async function authfoodpartnermiddleware(req,res,next) {
 
        const foodPartner = await foodPartnerModel.findById(decoded.id);
 
+       if(!foodPartner){
+        return res.status(409).json({
+            message:"User Account Can't Access this api..."
+        })
+       }
+
        req.foodPartner = foodPartner
 
        next()
