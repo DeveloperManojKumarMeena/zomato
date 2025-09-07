@@ -2,8 +2,14 @@ const express= require("express")
 const foodcontroller = require("../controllers/food.controller")
 const router = express.Router();
 const AuthPartnerFoodMiddleware = require("../middlewares/auth.middleware")
+const multer = require("multer")
 
-router.post('/',AuthPartnerFoodMiddleware.authfoodpartnermiddleware, foodcontroller.createFood)
+
+const upload = multer({
+    storage:multer.memoryStorage(),
+})
+
+router.post('/',AuthPartnerFoodMiddleware.authfoodpartnermiddleware,upload.single("video") ,foodcontroller.createFood)
 
 
 module.exports=router

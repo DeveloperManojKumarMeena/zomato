@@ -1,6 +1,5 @@
 const express = require("express")
 const cookieparser = require("cookie-parser");
-const multer  = require('multer')
 const authroutes = require("./routes/auth.routes"); // ✅ direct import
 const foodRoutes = require("./routes/food.routes")
 

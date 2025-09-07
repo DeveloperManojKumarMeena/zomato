@@ -7,7 +7,7 @@ const foodSchema = new mongoose.Schema({
     },
     video:{
         type:String,
-        require:true
+      
     },
     caption:{
         type:String
@@ -18,3 +18,7 @@ const foodSchema = new mongoose.Schema({
     }
 
 })
+
+const foodModel = mongoose.model("Food Iteam",foodSchema)
+
+module.exports =  foodModel
